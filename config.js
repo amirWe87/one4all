@@ -1,7 +1,6 @@
 
 module.exports = {
-  token:‏MTMzMTk4ODAxNDEwODUwODE4Mg.Gl5NWS.Aq0sNbrV-GcViiH9Pxx30Qqnwoq5fZ
-,‏CUXklQc
+  token:‏process.env.TOKEN
   prefix: "!",
   owner: "769060121904414720"
 }; 
