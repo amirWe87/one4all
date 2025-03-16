@@ -1,12 +1,12 @@
 const { ChatInputCommandInteraction, Client, SlashCommandBuilder, EmbedBuilder, PermissionsBitField } = require("discord.js");
 const { Database } = require("st.db");
-const feedbackDB = new Database("/Json-db/Bots/feedbackDB.json");
+const suggestionsDB = new Database("/Json-db/Bots/suggestionsDB.json");
 const isImage = require('is-image-header');
 
 module.exports = {
     adminsOnly: true,
     data: new SlashCommandBuilder()
-        .setName('set-feedback-line')
+        .setName('set-suggestions-line')
         .setDescription('تحديد الخط')
         .addStringOption(option => 
             option
@@ -20,7 +20,7 @@ module.exports = {
         try {
             await interaction.deferReply();
             const line = interaction.options.getString('line');
-            await feedbackDB.set(`line_${interaction.guild.id}`, line);
+            await suggestionsDB.set(`line_${interaction.guild.id}`, line);
             let embed = new EmbedBuilder()
                 .setDescription('**تم تحديد الخط**')
                 .setColor('Green')
